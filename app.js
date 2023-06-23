@@ -2,25 +2,43 @@ import express from "express";
 import morgan from "morgan"
 import dotenv from "dotenv";
 import cors from "cors";
+import { dbConnect } from './config/dbConnect.js';
+import userRoutes from './routes/userRoutes.js'
 dotenv.config();
+dbConnect();
 
 
 const app = express()
 
-
-
-
-
-
-
-
+//middleware
+app.use(express.json());
 
 app.use(morgan('dev'))
 app.use(cors({ origin: '*' }))
 
 
+//routes
+app.use("/api/v1/users", userRoutes);
+
+
+//login
+app.use("/api/v1/users/signin", userRoutes);
+
+//register
+app.use("/api/v1/users/signup", userRoutes);
+
+// Contributor routes
+app.use('/api/v1/users/contributor', userRoutes);
+
+// Campaign routes
+app.use('/api/v1/users/create_campaign', userRoutes);
+
+
+
 
 
 //listen server
-const PORT = process.env.Port || 8000;
+const PORT = process.env.port || 8000;
 app.listen(PORT, () => console.log(`Web server running on port ${PORT}`)); 
+
+
