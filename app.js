@@ -21,19 +21,17 @@ app.use(cors({ origin: '*' }))
 app.use("/api/v1/users", userRoutes);
 
 
-//login
-app.use("/api/v1/users/signin", userRoutes);
+// //login
+// app.use("/api/v1/users/signin", userRoutes);
 
-//register
-app.use("/api/v1/users/signup", userRoutes);
+// //register
+// app.use("/api/v1/users/signup", userRoutes);
 
-// Contributor routes
-app.use('/api/v1/users/contributor', userRoutes);
+// // Contributor routes
+// app.use('/api/v1/users/contributor', userRoutes);
 
-// Campaign routes
-app.use('/api/v1/users/create_campaign', userRoutes);
-
-
+// // Campaign routes
+// app.use('/api/v1/users/create_campaign', userRoutes);
 
 
 
